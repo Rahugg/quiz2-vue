@@ -4,7 +4,12 @@ import UserDetails from '../views/UserDetails.vue';
 
 const routes = [
   { path: '/', name: 'Home', component: HomePage },
-  { path: '/user/:id', name: 'UserDetails', component: UserDetails, props: true }
+  {
+    path: '/user/:id',
+    name: 'UserDetails',
+    component: UserDetails,
+    props: true,
+  },
 ];
 
 const router = createRouter({

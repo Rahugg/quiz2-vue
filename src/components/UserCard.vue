@@ -28,5 +28,21 @@ export default {
   padding: 16px;
   margin-bottom: 8px;
   cursor: pointer;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.user-card:hover {
+  background-color: #e9e9e9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-card p {
+  margin: 4px 0;
+}
+
+.user-card strong {
+  color: #333;
 }
 </style>

@@ -1,4 +1,4 @@
-# mini-project using options-api for components
+# mini-project
 
 ## Project setup
 ```

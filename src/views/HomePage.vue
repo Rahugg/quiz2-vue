@@ -9,22 +9,15 @@
   </div>
 </template>
 
-<script>
-import UserCard from '../components/UserCard.vue';
+<script setup>
 import { useRouter } from 'vue-router';
+import UserCard from '../components/UserCard.vue';
 import userStore from '../store/userStore.js';
 
-export default {
-  components: { UserCard },
-  setup() {
-    const router = useRouter();
+const router = useRouter();
 
-    const handleUserClick = (id) => {
-      router.push({ name: 'UserDetails', params: { id } });
-    };
-
-    return { userStore, handleUserClick };
-  },
+const handleUserClick = (id) => {
+  router.push({ name: 'UserDetails', params: { id } });
 };
 </script>
 

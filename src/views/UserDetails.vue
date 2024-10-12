@@ -8,32 +8,31 @@
     <p><strong>Email:</strong> {{ user.email }}</p>
     <button @click="goBack">Back to Home</button>
   </div>
+  <div v-else>
+    <p>User not found.</p>
+    <button @click="goBack">Back to Home</button>
+  </div>
 </template>
 
-<script>
-import { onBeforeUnmount, computed } from 'vue';
+<script setup>
+import { computed, onBeforeUnmount } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import userStore from '../store/userStore.js';
 
-export default {
-  setup() {
-    const route = useRoute();
-    const router = useRouter();
-    const userId = route.params.id;
+const route = useRoute();
+const router = useRouter();
 
-    const user = computed(() => userStore.getUserById(userId));
+const userId = route.params.id;
 
-    const goBack = () => {
-      router.push('/');
-    };
+const user = computed(() => userStore.getUserById(userId));
 
-    onBeforeUnmount(() => {
-      console.log('UserDetails component is being destroyed.');
-    });
-
-    return { user, goBack };
-  },
+const goBack = () => {
+  router.push({ name: 'Home' });
 };
+
+onBeforeUnmount(() => {
+  console.log('UserDetails component is being destroyed.');
+});
 </script>
 
 <style scoped>

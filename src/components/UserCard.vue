@@ -6,19 +6,20 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    user: {
-      type: Object,
-      required: true,
-    },
+<script setup>
+import { defineProps, defineEmits } from 'vue';
+
+const props = defineProps({
+  user: {
+    type: Object,
+    required: true,
   },
-  methods: {
-    emitUserClick() {
-      this.$emit('user-click', this.user.id);
-    },
-  },
+});
+
+const emit = defineEmits(['user-click']);
+
+const emitUserClick = () => {
+  emit('user-click', props.user.id);
 };
 </script>
 
